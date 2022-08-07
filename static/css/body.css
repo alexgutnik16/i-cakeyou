@@ -135,6 +135,21 @@
     font-weight: 100;
 }
 
+
+/* .order-button {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9c3c0;
+    color: white;
+} */
+
 .how-to-order {
     width: 100%;
     background-color: #e9c3c0;

@@ -80,9 +80,9 @@
             <div class="content-filter">
                 <a class="btn active" href="?category=#products">Все</a>
                 <a class="btn" href="?category=BC#products">Бисквитные торты</a>
+                <a class="btn" href="?category=MN#products">Мини торты</a>
                 <a class="btn" href="?category=MC#products">Муссовые торты</a>
                 <a class="btn" href="?category=DS#products">Десерты</a>
-                <a class="btn" href="?category=MN#products">Мини торты</a>
             </div>
             <div class="content-products-range">
                 {% for item in products %}
@@ -103,6 +103,9 @@
                         <h3>{{ item.price }} <span class="units">р/кг</span></h3>
                         {% endif %}
                     </div>
+                    <!-- <div class="ontent-products-range-product-order">
+                        <p href="https://wa.me/89787842676">Заказать</p>
+                    </div> -->
                 </a>
                 {% endfor %}
             </div>

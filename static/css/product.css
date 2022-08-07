@@ -65,3 +65,29 @@
     text-decoration: none;
     color: darkblue;
 }
+
+.order-button {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.order-button a {
+    width: 30%;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9c3c0;
+    color: white;
+}
+
+.order-button a:hover {
+    background-color: #e8e6e6;
+    color: black;
+}
