@@ -1,0 +1,1 @@
+web: gunicorn ICakeYou.wsgi --log-file -

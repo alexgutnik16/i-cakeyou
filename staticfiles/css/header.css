@@ -1,0 +1,132 @@
+header {
+    width: 100%;
+    background-color: #f5b2ac;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    padding: 10px;
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header-menu {
+    padding: 0;
+}
+
+.header-menu li {
+    list-style-type: none;
+}
+
+.header-menu a {
+    margin: 13px;
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.header-menu a:hover {
+    background-color: #e8e6e6;
+    color: black;
+}
+
+.header-contacts {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-contacts a {
+    text-decoration: none;
+}
+
+.header-contacts-phone_number {
+    display: flex;
+    justify-content: center;
+}
+
+.header-contacts-social_networks__vk,
+.header-contacts-social_networks__tg {
+    padding: 10px;
+}
+
+.mobile-header {
+    display: none;
+    background-color: #f5b2ac;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidenav .closebtn {
+    color: #f1f1f1;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 0px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f5b2ac;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.sidenav a {
+    padding: 4px;
+    margin: 4px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.mobile-header-logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.mobile-header-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.nav {
+    margin: 0px 12px 5px 12px;
+    margin-bottom: 5px;
+}
+
+.mobile-header-inst {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.mobile-header-contacts-social_networks__inst {
+    width: 40px;
+    height: 40px;
+}

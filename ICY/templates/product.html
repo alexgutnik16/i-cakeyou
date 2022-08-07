@@ -1,0 +1,59 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+    <title>
+        {{ product.name }}
+    </title>
+</head>
+
+<body>
+    <div class="product">
+        <div class="images">
+            <div class="products-gallery">
+                {% for image in images %} {% if image.product == product %}
+                <div class="product-img">
+                    <img src="{{ image.photo.url }}" alt="image" onclick="myImageFunction(this)">
+                </div>
+                {% endif %} {% endfor %}
+            </div>
+            <div class="image-container">
+                {% for image in images %} {% if image.product == product and image.default %}
+                <img id="img-box" src="{{ image.photo.url }}" alt="image"> {% endif %} {% endfor %}
+            </div>
+
+        </div>
+        <div class="additional">
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.description }}.</p>
+            {% if product.category == 'DS' %}
+            <h3><span class="units">Цена: </span> {{ product.price }}р. <span class="units">шт</span></h3>
+            {% else %}
+            <h3><span class="units">Цена: </span> {{ product.price }}р. <span class="units">кг</span></h3>
+            {% endif %}
+            <div class="order">
+                <h3>Как оформить заказ</h3>
+                <p>Лучше всего делать заказ за 3-5 дней до даты. Также бывают десерты в наличии, уточняйте.</p>
+                <p>Заказ осуществляется по 50% предоплате. Оплатить заказ можно переводом на РНКБ/Cбер или наличными. </p>
+                <p>Для оформления заказ пишите мне любым удобным способом.</p>
+                <p>Мария +7(978)044-69-27 (<a href="https://wa.me/89787842676">WhatsApp</a>, <a href="https://t.me/MaryGutnik">Telegram</a>)</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function myImageFunction(productSmallImg) {
+            var productFullImg = document.getElementById("img-box");
+            productFullImg.src = productSmallImg.src;
+        }
+    </script>
+
+</body>
+
+</html>

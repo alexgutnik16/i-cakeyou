@@ -1,0 +1,167 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+    <title>
+        I Cake You
+    </title>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="{% static 'images/header/logo_ICY.png' %}" alt="logo" width="130" height="130">
+        </div>
+        <ul class="header-menu">
+            <li><a href="#products">Ассортимент</a></li>
+            <li><a href="#order">Как заказать</a></li>
+            <li><a href="#decor">Декор</a></li>
+        </ul>
+        <div class="header-contacts">
+            <div class="header-contacts-phone_number">
+                <p>+7(978)044-69-27</p>
+            </div>
+            <div class="header-contacts-social_networks">
+                <a href="https://instagram.com/i_cakeyou">
+                    <img class="header-contacts-social_networks__inst" src="{% static 'images/header/social_networks/inst.png' %}" alt="ig" width="50" height="50">
+                </a>
+                <a href="https://t.me/icakeyou">
+                    <img class="header-contacts-social_networks__tg" src="{% static 'images/header/social_networks/telegram.png' %}" alt="tg" width="30" height="30">
+                </a>
+                <a href="https://vk.com/i_cakeyou">
+                    <img class="header-contacts-social_networks__vk" src="{% static 'images/header/social_networks/vk.png' %}" alt="vk" width="33" height="33">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-header">
+        <a class="mobile-header-inst" href="https://instagram.com/i_cakeyou">
+            <img class="mobile-header-contacts-social_networks__inst" src="{% static 'images/header/social_networks/inst.png' %}" alt="ig" width="50" height="50">
+        </a>
+        <a href="#" class="mobile-header-logo">
+            <img src="{% static 'images/header/logo_ICY.png' %}" alt="logo" width="20px" height="20px">
+        </a>
+        <div class="nav">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#products" onclick="closeNav()">Ассортимент</a>
+                <a href="#order" onclick="closeNav()">Как заказать</a>
+                <a href="#decor" onclick="closeNav()">Декор</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-banner">
+            <h1>I CAKE YOU</h1>
+            <h3>Торты на заказ в Севастополе</h3>
+        </div>
+        <h1 class="about-me-h1">Обо мне</h1>
+        <div class="about-me">
+            <div class="about-me-img">
+                <img src="{% static 'images/body/about_me.jpg' %}" alt="img">
+            </div>
+            <div class="about-me-text">
+                <h3>Меня зовут Мария Гутник и я ... обожаю творить торты!</h3>
+                <p>Это мой кондитерский цех I CAKE YOU.</p>
+                <p>Профессионально я в кондитерке с 2019 года, с тех пор накопилась уже масса дипломов, пройдено большое количество курсов, вебинаров, я постоянно учусь, люблю быть в потоке) Еще в копилке магистратура по пищевым технологиям, все серьёзно.</p>
+                <p>С 2021 года я являюсь куратором кондитерской школы Cake School Алины Макаровой.</p>
+                <p>В общем, торты и десерты - моя любовь и я счастлива разделять её с вами.</p>
+                <p>I CAKE YOU - приду к вам с тортом!</p>
+            </div>
+        </div>
+        <div id="products" class="content-products">
+            <h1>Ассортимент и цены</h1>
+            <div class="content-filter">
+                <a class="btn active" href="?category=#products">Все</a>
+                <a class="btn" href="?category=BC#products">Бисквитные торты</a>
+                <a class="btn" href="?category=MC#products">Муссовые торты</a>
+                <a class="btn" href="?category=DS#products">Десерты</a>
+                <a class="btn" href="?category=MN#products">Мини торты</a>
+            </div>
+            <div class="content-products-range">
+                {% for item in products %}
+                <a class="content-products-range-product" href="{% url 'product' item.id %}">
+                    <div class="content-products-range-product-main">
+                        {% for image in images %} {% if image.product == item %}
+                        <div class="content-products-range-product__img">
+                            <img src="{{ image.photo.url }}" alt="image">
+                        </div>
+                        {% endif %} {% endfor %}
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.description }}</p>
+                    </div>
+                    <div class="content-products-range-product-price">
+                        {% if item.category == 'DS' %}
+                        <h3>{{ item.price }} <span class="units">р/шт</span></h3>
+                        {% else %}
+                        <h3>{{ item.price }} <span class="units">р/кг</span></h3>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="order" class="how-to-order">
+        <div class="how-to-order-text-container">
+            <h1>Как оформить заказ</h1>
+            <p>Лучше всего делать заказ за 3-5 дней до даты. Также бывают десерты в наличии, уточняйте.</p>
+            <p>Заказ осуществляется по 50% предоплате. Оплатить заказ можно переводом на РНКБ/Cбер или наличными. </p>
+            <p>Для оформления заказ пишите мне любым удобным способом.</p>
+            <p>Мария +7(978)044-69-27 (<a href="https://wa.me/89787842676">WhatsApp</a>, <a href="https://t.me/MaryGutnik">Telegram</a>)</p>
+            <div class="how-to-order-contacts">
+                <div class="how-to-order-contacts-social_networks">
+                    <a href="https://instagram.com/i_cakeyou">
+                        <img class="how-to-order-contacts-social_networks__inst" src="{% static 'images/header/social_networks/inst.png' %}" alt="ig" width="50" height="50">
+                    </a>
+                    <a href="https://t.me/icakeyou">
+                        <img class="how-to-order-contacts-social_networks__tg" src="{% static 'images/header/social_networks/telegram.png' %}" alt="tg" width="30" height="30">
+                    </a>
+                    <a href="https://vk.com/i_cakeyou">
+                        <img class="how-to-order-contacts-social_networks__vk" src="{% static 'images/header/social_networks/vk.png' %}" alt="vk" width="33" height="33">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="decor" class="decor">
+        <img src="{% static 'images/body/decor/decor-1.jpeg' %}" alt="img">
+        <img src="{% static 'images/body/decor/decor-2.jpeg' %}" alt="img">
+        <img src="{% static 'images/body/decor/decor-3.jpeg' %}" alt="img">
+        <img class="image-grid-col-2" src="{% static 'images/body/decor/decor-4.jpeg' %}" alt="img">
+        <img src="{% static 'images/body/decor/decor-5.jpg' %}" alt="img">
+    </div>
+    <footer>
+        <h3>I Cake You</h3>
+        <div class="header-contacts">
+            <div class="header-contacts-social_networks">
+                <a href="https://instagram.com/i_cakeyou">
+                    <img class="header-contacts-social_networks__inst" src="{% static 'images/header/social_networks/inst.png' %}" alt="ig" width="50" height="50">
+                </a>
+                <a href="https://t.me/icakeyou">
+                    <img class="header-contacts-social_networks__tg" src="{% static 'images/header/social_networks/telegram.png' %}" alt="tg" width="30" height="30">
+                </a>
+                <a href="https://vk.com/i_cakeyou">
+                    <img class="header-contacts-social_networks__vk" src="{% static 'images/header/social_networks/vk.png' %}" alt="vk" width="33" height="33">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>
