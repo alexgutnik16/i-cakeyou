@@ -171,4 +171,7 @@ body {
     .image-container img {
         --height: 300px;
     }
+    .order-button {
+        margin-top: 20px;
+    }
 }
