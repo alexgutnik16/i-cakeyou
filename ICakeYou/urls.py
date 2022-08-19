@@ -27,5 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', cache_page(60)(ProductsView.as_view())),
     path('products/<int:pk>', cache_page(60)(ProductView.as_view()), name='product'),
+    # path('', ProductsView.as_view()),
+    # path('products/<int:pk>', ProductView.as_view(), name='product'),
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
