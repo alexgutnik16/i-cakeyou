@@ -101,6 +101,14 @@ header {
     transition: 0.3s;
 }
 
+.mobile-header-contacts-social_networks {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .sidenav a:hover {
     color: #f1f1f1;
 }
